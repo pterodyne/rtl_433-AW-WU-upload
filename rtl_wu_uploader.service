@@ -1,0 +1,19 @@
+[Unit]
+Description=RTL_433 to Weather Underground Uploader
+After=network.target network-online.target # Ensure network is up
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=yourusername
+WorkingDirectory=path/to/script
+
+# Full path to the script
+ExecStart=/path/to/rtl_wu_uploader.sh
+
+# Restart policy
+Restart=always
+RestartSec=30s # Time to wait before restarting
+
+[Install]
+WantedBy=multi-user.target
